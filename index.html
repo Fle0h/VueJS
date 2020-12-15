@@ -7,21 +7,7 @@
 </head>
 <body>
   <div class="ui main container" id="app">
-    <a :href="link" :title="title">{{ message }}</a>
-
-    <ul>
-      <li v-for="person in persons">{{ person }}</li>
-    </ul>
-
-    <div class="ui success message" v-if="success">
-      <a href="" class="close icon" @click="close">test</a>
-      <p>Bravo votre enregistrement a fonctionné</p>
-    </div>
-
-    <div class="ui error message" v-else>
-      <p>Erreur</p>
-    </div>
-
+    {{ seconds }}
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>

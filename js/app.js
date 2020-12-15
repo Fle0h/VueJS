@@ -1,19 +1,18 @@
-new Vue({
+let vm = new Vue ({
   el: '#app',
 
   data: {
-    message: 'Salut les gens',
-    title: 'Lien',
-    link: 'https://www.google.com',
-    success : true,
-    persons: ['Jon', 'Marion', 'Marine', 'David'],
+    seconds: 0
   },
 
-  methods: {
-    close: function () {
-      this.success = false;
-      console.log('close');
-      event.preventDefault();
-    }
+  mounted: function() {
+    this.$interval = setInterval(() => {
+      console.log("Time");
+      this.seconds++
+    }, 1000);
   },
+
+  destroyed: function () {
+    clearInterval(this.$interval);
+  }
 })
