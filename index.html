@@ -6,9 +6,24 @@
   <title>VueJS</title>
 </head>
 <body>
+
   <div class="ui main container" id="app">
-    {{ seconds }}
+    <h1>{{ title }}</h1>
+    <ul>
+      <li v-for="unit in units">{{ unit }}</li>
+    </ul>
+    <input type="text" v-model="input">
+    <button @click="addUnit">Envoyer</button>
+
+    <div class="ui" v-if="success">
+      <p>Validé</p>
+    </div>
+    <div class="ui" v-else>
+      <p>Erreur</p>
+    </div>
+
   </div>
+
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
   <script src="js/app.js"></script>

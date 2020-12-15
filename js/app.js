@@ -1,18 +1,30 @@
-let vm = new Vue ({
+const vm = new Vue ({
   el: '#app',
 
   data: {
-    seconds: 0
+    units: ['Zergling', 'Marine', 'Zealot'],
+    success : false,
+    title : 'Bienvenue jeune StarCraftien !',
+    input : 'Insérez une nouvelle unité',
   },
 
-  mounted: function() {
-    this.$interval = setInterval(() => {
-      console.log("Time");
-      this.seconds++
-    }, 1000);
+  methods: {
+    addUnit: function() {
+      this.units.push(this.input);
+      this.input = '';
+      this.success = true;
+      console.log(this.success);
+    }
   },
 
-  destroyed: function () {
-    clearInterval(this.$interval);
-  }
+  watch: {
+    units: function(value) {
+      console.log('units', value);
+    }
+  },
+
+  mounted: function () {
+    console.log("Init");
+    console.log(this.success);
+  },
 })
